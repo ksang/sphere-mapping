@@ -1,0 +1,10 @@
+---
+name: sphere-mapping
+channels:
+    - anaconda
+    - plotly
+dependencies:
+    - python
+    - jupyter
+    - plotly
+    - numpy
