@@ -58,8 +58,9 @@ def get_neighbor_vertices(points, sample, sphere_to_uv_fn):
     phi_theta = cartesian_to_spherical(sample.reshape(1, 3))
     uv = sphere_to_uv_fn(phi_theta).reshape(2)
     u0 = int(uv[0] * phi_num)
+    if u0 == phi_num: u0 = 0
     u1 = u0 + 1
-    if u1 >= phi_num: u1 = 0
+    if u1 == phi_num: u1 = 0
     v0 = int(uv[1] * (theta_num - 1))
     v1 = v0 + 1
     if v1 == theta_num: v1 = theta_num - 1
