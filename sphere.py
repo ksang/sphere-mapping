@@ -64,5 +64,5 @@ def get_neighbor_vertices(points, sample, sphere_to_uv_fn):
     v0 = int(uv[1] * (theta_num - 1))
     v1 = v0 + 1
     if v1 == theta_num: v1 = theta_num - 1
-    print("phi_theta: {}, uv: {}, vertices: {},{},{},{}".format(phi_theta, uv, u0, u1, v0, v1))
+    print("phi_theta: {}, uv: {}, neighbir vertices: {},{},{},{}".format(phi_theta, uv, u0, u1, v0, v1))
     return np.array([points[u0, v0], points[u1, v0], points[u0, v1], points[u1, v1]])
