@@ -16,6 +16,7 @@ parser.add_argument('--phi', type=float, default=0.0, help='Phi in radians')
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    np.random.seed()
     sample = np.random.rand(3) - 0.5
     sample = sample / np.linalg.norm(sample) 
     resolution = (args.resolution_u, args.resolution_v)
