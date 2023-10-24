@@ -29,13 +29,16 @@ def cartesian_to_spherical(points: np.ndarray, eps: float = 1e-6):
     phi_theta[:, 0][ (np.abs(points[:, 0]) < eps) & (np.abs(points[:, 1]) < eps) ] = 0
     return phi_theta
 
-def create_sphere_points(resolution: (int, int), uv_to_shphere_fn):
+def create_sphere_points(resolution: (int, int), uv_to_shphere_fn, u_endpoint=False):
     """
     Generate points on unit sphere with given resolution at (u, v)
         Input:  resolution, resolution at u (azimuthal) and v (polar)
         Output: points on unit sphere
     """
-    u = np.linspace(0., 1., resolution[0], endpoint=False)
+    if u_endpoint:
+        u = np.linspace(0., 1., resolution[0], endpoint=True)
+    else:
+        u = np.linspace(0., 1., resolution[0], endpoint=False)
     v = np.linspace(0., 1., resolution[1])
     pu, pv = np.meshgrid(u,v, indexing='ij')
     grid = np.stack([pu, pv])
